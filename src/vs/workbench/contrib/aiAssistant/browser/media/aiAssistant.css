@@ -1,0 +1,211 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.ai-assistant {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding: 0 12px 12px;
+}
+
+.ai-assistant .ai-assistant-messages {
+	flex: 1 1 auto;
+	min-height: 0;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 8px 0;
+}
+
+.ai-assistant .ai-assistant-empty {
+	color: var(--vscode-descriptionForeground);
+	padding: 8px 0;
+}
+
+.ai-assistant .ai-assistant-message {
+	word-break: break-word;
+	line-height: 1.5;
+	padding: 6px 8px;
+	border-radius: 4px;
+	min-width: 0;
+}
+
+.ai-assistant .ai-assistant-message.user {
+	white-space: pre-wrap;
+	align-self: flex-end;
+	max-width: 85%;
+	background-color: var(--vscode-input-background);
+	border: 1px solid var(--vscode-input-border, transparent);
+}
+
+.ai-assistant .ai-assistant-message.pending {
+	color: var(--vscode-descriptionForeground);
+	font-style: italic;
+}
+
+.ai-assistant .ai-assistant-error {
+	white-space: pre-wrap;
+	color: var(--vscode-errorForeground);
+	margin-top: 6px;
+}
+
+/* Rendered Markdown replies */
+
+.ai-assistant .rendered-markdown > :first-child {
+	margin-top: 0;
+}
+
+.ai-assistant .rendered-markdown > :last-child {
+	margin-bottom: 0;
+}
+
+.ai-assistant .rendered-markdown p,
+.ai-assistant .rendered-markdown ul,
+.ai-assistant .rendered-markdown ol,
+.ai-assistant .rendered-markdown pre,
+.ai-assistant .rendered-markdown blockquote,
+.ai-assistant .rendered-markdown table {
+	margin: 0 0 8px;
+}
+
+.ai-assistant .rendered-markdown ul,
+.ai-assistant .rendered-markdown ol {
+	padding-left: 20px;
+}
+
+.ai-assistant .rendered-markdown h1,
+.ai-assistant .rendered-markdown h2,
+.ai-assistant .rendered-markdown h3,
+.ai-assistant .rendered-markdown h4 {
+	font-size: 1.1em;
+	margin: 12px 0 6px;
+}
+
+.ai-assistant .rendered-markdown code {
+	font-family: var(--monaco-monospace-font);
+	font-size: 0.95em;
+}
+
+.ai-assistant .rendered-markdown :not(pre) > code {
+	padding: 1px 4px;
+	border-radius: 3px;
+	background-color: var(--vscode-textPreformat-background);
+	color: var(--vscode-textPreformat-foreground);
+}
+
+/* Fenced code blocks: syntax-highlighted `.monaco-tokenized-source` from the editor's code block renderer, or a plain `pre` for blocks without a known language. */
+.ai-assistant .rendered-markdown pre,
+.ai-assistant .rendered-markdown .monaco-tokenized-source {
+	display: block;
+	margin: 0 0 8px;
+	padding: 8px 10px;
+	border-radius: 4px;
+	overflow-x: auto;
+	white-space: pre;
+	tab-size: 4;
+	line-height: 1.4;
+	background-color: var(--vscode-textCodeBlock-background);
+	border: 1px solid var(--vscode-widget-border, transparent);
+}
+
+.ai-assistant .ai-assistant-code-block {
+	margin: 0 0 8px;
+}
+
+.ai-assistant .ai-assistant-code-block .monaco-tokenized-source {
+	margin: 0;
+}
+
+.ai-assistant .ai-assistant-code-toolbar {
+	display: flex;
+	justify-content: flex-end;
+	gap: 4px;
+	margin-bottom: 4px;
+}
+
+.ai-assistant .ai-assistant-code-toolbar .monaco-button {
+	width: auto;
+	padding: 1px 6px;
+	font-size: 11px;
+	line-height: 16px;
+	gap: 4px;
+}
+
+.ai-assistant .ai-assistant-code-toolbar .monaco-button .codicon {
+	font-size: 12px;
+}
+
+.ai-assistant .rendered-markdown pre code {
+	white-space: pre;
+}
+
+.ai-assistant .rendered-markdown blockquote {
+	padding: 0 8px;
+	border-left: 3px solid var(--vscode-textBlockQuote-border);
+	color: var(--vscode-descriptionForeground);
+}
+
+.ai-assistant .rendered-markdown table {
+	border-collapse: collapse;
+}
+
+.ai-assistant .rendered-markdown th,
+.ai-assistant .rendered-markdown td {
+	padding: 2px 8px;
+	border: 1px solid var(--vscode-widget-border, var(--vscode-editorWidget-border));
+}
+
+.ai-assistant .rendered-markdown a {
+	color: var(--vscode-textLink-foreground);
+}
+
+.ai-assistant .ai-assistant-composer {
+	flex: 0 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.ai-assistant .ai-assistant-context {
+	color: var(--vscode-descriptionForeground);
+	font-size: 11px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ai-assistant .ai-assistant-input {
+	resize: vertical;
+	min-height: 48px;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 6px 8px;
+	font-family: inherit;
+	font-size: inherit;
+	color: var(--vscode-input-foreground);
+	background-color: var(--vscode-input-background);
+	border: 1px solid var(--vscode-input-border, transparent);
+	border-radius: 2px;
+}
+
+.ai-assistant .ai-assistant-input:focus {
+	outline: 1px solid var(--vscode-focusBorder);
+	outline-offset: -1px;
+}
+
+.ai-assistant .ai-assistant-input::placeholder {
+	color: var(--vscode-input-placeholderForeground);
+}
+
+.ai-assistant .ai-assistant-actions {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.ai-assistant .ai-assistant-actions .monaco-button {
+	width: auto;
+	padding: 4px 14px;
+}

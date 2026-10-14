@@ -1770,6 +1770,15 @@ export default defineConfig(
 					]
 				},
 				{
+					'target': 'src/vs/platform/aiHost/~',
+					'restrictions': [
+						'vs/base/~',
+						'vs/base/parts/*/~',
+						'vs/platform/*/~',
+						'@anthropic-ai/sdk', // used by the AI host for Anthropic API requests
+					]
+				},
+				{
 					'target': 'src/vs/platform/agentHost/~',
 					'restrictions': [
 						'vs/base/~',
